@@ -15,11 +15,16 @@
     "name": "Bas Velthuizen",
     "email": "bas.velthuizen@marviq.com"
   },
-  "license": "ISC",
+  "maintainers": {
+    "name": "David Bouman",
+    "email": "david.bouman@marviq.com"
+  },
+  "license": "Marviq",
   "repository": {
     "type": "git",
     "url": "ssh://git@stash.marviq.com:7999/jsch/jsonvalidate.git"
   },
+  "bugs": "https://jira.marviq.com",
   "engines": {
     "node": ">= 0.10"
   },
@@ -28,5 +33,15 @@
     "tv4": "^1.1.4",
     "winston": "^0.8.3"
   },
-  "homepage": "http://zaach.github.com/jsonlint/"
+  "homepage": "https://stash.marviq.com/projects/JSCH/repos/jsonvalidate/browse",
+  "files": [
+    "index.js",
+    "package.json",
+    "LICENSE",
+    "AUTHORS",
+    "readme.md"
+  ],
+  "publishConfig": {
+    "registry": "http://npm.marviq.net:5984/registry/_design/app/_rewrite"
+  }
 }
