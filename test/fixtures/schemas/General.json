@@ -1,0 +1,480 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "type": "object",
+  "id": "General.json",
+  "properties": {
+    "auth": {
+      "description": "Authorisation section",
+      "required": true,
+      "type": "object",
+      "properties": {
+        "password": {
+          "description": "MD5 sum of password",
+          "required": true,
+          "type": ["string", "null"]
+        },
+        "user": {
+          "description": "User code to log on",
+          "required": true,
+          "type": "string"
+        }
+      }
+    },
+    "error": {
+      "description": "Error response object",
+      "required": false,
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "Errord code",
+          "required": true,
+          "type": "number"
+        },
+        "message": {
+          "description": "Error description",
+          "required": false,
+          "type": "string"
+        }
+      }
+    },
+    "FirstRow": {
+      "description": "Reports/lists: start reporting from this row",
+      "required": false,
+      "type": ["number", "null"]
+    },
+    "Limit": {
+      "description": "Reports/lists: max number of rows to return",
+      "required": false,
+      "type": ["number", "null"]
+    },
+    "locations": {
+      "description": "Array of location codes ['loc01','loc02','loc03'])",
+      "required": false,
+      "type": "array",
+      "items": {
+        "description": "Location code or location group code",
+        "type": "string"
+      }
+    },
+    "more": {
+      "description": "When true, the list is incomplete. Use a subsequent request to get more results",
+      "required": false,
+      "type": "boolean"
+    },
+    "nextrow": {
+      "description": "In case of incomplete list, start subsequent list request with this row",
+      "required": false,
+      "type": "number"
+    },
+    "person": {
+      "description": "Person object",
+      "required": false,
+      "type": "object",
+      "properties": {
+        "ADT": {
+          "description": "Address types",
+          "required": false,
+          "type": "object",
+          "properties": {
+            "PA": {
+              "description": "Postal Address",
+              "required": false,
+              "type": "object",
+              "properties": {
+                "city": {
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "country": {
+                  "description": "ISO 3166-1 alpha-3 country code",
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "houseno": {
+                  "required": false,
+                  "type": ["number", "null"]
+                },
+                "housenoext": {
+                  "description": "House number extension",
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "postcode": {
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "street": {
+                  "description": "Street name",
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "streetdetail": {
+                  "description": "Name of building",
+                  "required": false,
+                  "type": ["string", "null"]
+                }
+              }
+            },
+            "PB": {
+              "description": "Post Box",
+              "required": false,
+              "type": "object",
+              "properties": {
+                "city": {
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "country": {
+                  "description": "ISO 3166-1 alpha-3 country code",
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "poboxno": {
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "postcode": {
+                  "required": false,
+                  "type": ["string", "null"]
+                }
+              }
+            },
+            "VA": {
+              "description": "Visit Address",
+              "required": false,
+              "type": "object",
+              "properties": {
+                "city": {
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "country": {
+                  "description": "ISO 3166-1 alpha-3 country code",
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "houseno": {
+                  "required": false,
+                  "type": ["number", "null"]
+                },
+                "housenoext": {
+                  "description": "House number extension",
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "latitude": {
+                  "required": false,
+                  "type": "number"
+                },
+                "longitude": {
+                  "required": false,
+                  "type": "number"
+                },
+                "postcode": {
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "street": {
+                  "description": "Street name",
+                  "required": false,
+                  "type": ["string", "null"]
+                },
+                "streetdetail": {
+                  "description": "Name of building",
+                  "required": false,
+                  "type": ["string", "null"]
+                }
+              }
+            }
+          }
+        },
+        "EC_PERSON_HWDIST": {
+          "description": "Distance home-work",
+          "required": false,
+          "type": ["number", "null"]
+        },
+        "EC_PERSON_PERSONNELCLUB": {
+          "description": "Member of personnel club",
+          "required": false,
+          "type": ["boolean", "null"]
+        },
+        "EC_PERSON_SALARYNO": {
+          "description": "Salary number",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "IDS": {
+          "description": "Identifiers",
+          "required": false,
+          "type": "array",
+          "items": {
+            "required": false,
+            "type": "object",
+            "properties": {
+              "type": {
+                "description": "Identifier type code",
+                "required": false,
+                "type": "string"
+              },
+              "identifier": {
+                "required": false,
+                "type": "array",
+                "items": {
+                  "required": false,
+                  "type": "object",
+                  "properties": {
+                    "cardlayout": {
+                      "description": "Code of cardlayout for printing ID cards",
+                      "required": false,
+                      "type": ["string", "null"]
+                    },
+                    "code": {
+                      "description": "Readable code (card number, passport number, veicle plate etcetera)",
+                      "required": true,
+                      "type": "string"
+                    },
+                    "expiredate": {
+                      "description": "Date/time on which the validity expires (W3C datetime)",
+                      "required": false,
+                      "type": ["string", "null"]
+                    },
+                    "isvalid": {
+                      "description": "Identifier can be used (yes/no). Overrules validfrom and expiredate",
+                      "required": false,
+                      "type": ["boolean", "null"]
+                    },
+                    "pin": {
+                      "description": "Pincode, when appliable",
+                      "required": false,
+                      "type": ["string", "null"]
+                    },
+                    "remark": {
+                      "description": "Remarks regarding the identifier",
+                      "required": false,
+                      "type": ["string", "null"]
+                    },
+                    "validfrom": {
+                      "description": "Date/time on which the validity starts (W3C datetime)",
+                      "required": false,
+                      "type": ["string", "null"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "birthdate": {
+          "description": "Birth date (W3C date)",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "birthname": {
+          "description": "Maiden name",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "birthnameprep": {
+          "description": "Surname preposition of maiden name",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "education": {
+          "required": false,
+          "type": "array",
+          "items": {
+            "required": false,
+            "type": "object",
+            "properties": {
+              "completed": {
+                "description": "Education completed (with a diploma)",
+                "required": false,
+                "type": ["boolean", "null"]
+              },
+              "edutype": {
+                "description": "Code of education type",
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "enddate": {
+                "description": "Finished (timestamp)",
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "grade": {
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "startdate": {
+                "description": "Started (timestamp)",
+                "required": false,
+                "type": ["string", "null"]
+              }
+            }
+          }
+        },
+        "emaddress": {
+          "description": "Email address",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "enddate": {
+          "description": "Finished working (timestamp)",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "firstname": {
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "fiscalno": {
+          "description": "Fiscal number",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "fullname": {
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "functions": {
+          "required": false,
+          "type": "array",
+          "items": {
+            "required": false,
+            "type": "object",
+            "properties": {
+              "businessunit": {
+                "description": "Business unit code",
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "costheading": {
+                "description": "Coast heading code",
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "department": {
+                "description": "Department code",
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "enddate": {
+                "description": "Function ended (W3C date)",
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "function": {
+                "description": "Function code",
+                "required": false,
+                "type": ["string", "null"]
+              },
+              "startdate": {
+                "description": "Function started (W3C date)",
+                "required": false,
+                "type": ["string", "null"]
+              }
+            }
+          }
+        },
+        "gender": {
+          "description": "F or M (female / male)",
+          "enum": [
+            "M",
+            "F",
+            null
+          ],
+          "required": false
+        },
+        "initials": {
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "isactive": {
+          "description": "Person is active",
+          "required": false,
+          "type": ["boolean", "null"]
+        },
+        "nameprep": {
+          "description": "Surname preposition",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "persno": {
+          "description": "Person number (unique identifier)",
+          "required": false,
+          "type": "string"
+        },
+        "persontype": {
+          "description": "Code for person type",
+          "enum": [
+            "EMPLOYEE",
+            "CLIENT",
+            "STUDENT",
+            "FAMILY",
+            "VISITOR",
+            "VOLUNTEER"
+          ],
+          "required": false
+        },
+        "phoneno": {
+          "description": "Phone number",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "startdate": {
+          "description": "Started working (timestamp)",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "surname": {
+          "required": false,
+          "type": "string"
+        },
+        "titleafter": {
+          "description": "Title after name",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "titlebefore": {
+          "description": "Title before name",
+          "required": false,
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "timeframe": {
+      "description": "Time frame containing two timestamps: from and to",
+      "required": false,
+      "type": "object",
+      "properties": {
+        "from": {
+          "description": "Acces period start (timestamp)",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "to": {
+          "description": "Acces period end (timestamp)",
+          "required": false,
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "dateframe": {
+      "description": "Data frame containing two ISO (yyyy-mm-dd) dates: from and to",
+      "required": false,
+      "type": "object",
+      "properties": {
+        "from": {
+          "description": "Date frame start",
+          "required": false,
+          "type": ["string", "null"]
+        },
+        "to": {
+          "description": "Date fame end",
+          "required": false,
+          "type": ["string", "null"]
+        }
+      }
+    }
+  }
+}

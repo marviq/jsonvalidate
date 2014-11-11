@@ -1,0 +1,17 @@
+{
+    "auth": {
+        "user": true,
+        "password": "f3cb2002b79b6c0f033c516fb5d3845c"
+    },
+    "persno": "P10028",
+    "identifier":
+    {
+      "code": "762345677",
+      "type": "RFIDCARD",
+      "locations": true
+    },
+    "locations": [
+          true,
+          "TRIU101"
+        ]
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "description": "Request and reponse format for GrantAccess",
+  "id":"GrantAccess.json",
+    "type": "object",
+    "properties": {
+      "auth": {
+          "$ref": "General.json#/properties/auth"
+      },
+      "persno": {
+        "description": "Person code",
+        "required": true,
+        "type": "string"
+      },
+      "identifier": {
+        "required": false,
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "Identifier code (card number, passport number, vehicle plate etcetera",
+            "required": true,
+            "type": "string"
+          },
+          "locations": {
+            "description": "List of locations that apply to this identifier",
+            "$ref": "General.json#/properties/locations"
+          },
+          "type": {
+            "description": "Identifier type code ('RFIDCARD' when omitted)",
+            "required": false,
+            "type": "string"
+          }
+        }
+      },
+      "locations": {
+        "description": "List of locations that apply to all identifiers of a person",
+        "$ref": "General.json#/properties/locations"
+      },
+      "timeframe": {
+        "description": "Array of time frames to restrict access to these time frames",
+        "required": false,
+        "type": "array",
+        "items": {
+          "$ref": "General.json#/properties/timeframe"
+        }
+      }
+    }
+  }

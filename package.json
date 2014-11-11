@@ -1,0 +1,26 @@
+{
+  "name": "jsonvalidate",
+  "version": "1.0.0",
+  "description": "Commandline validator of json-files against a json-schema",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "json-schema",
+    "json"
+  ],
+  "author": {
+    "name": "Bas Velthuizen",
+    "email": "bas.velthuizen@marviq.com"
+  },
+  "license": "ISC",
+  "engines": {
+    "node": ">= 0.10"
+    },
+  "dependencies": {
+    "nomnom": "^1.8.1",
+    "tv4": "^1.1.4"
+  }
+}
