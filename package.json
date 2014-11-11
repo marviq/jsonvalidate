@@ -16,6 +16,10 @@
     "email": "bas.velthuizen@marviq.com"
   },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@stash.marviq.com:7999/jsch/jsonvalidate.git"
+  },
   "engines": {
     "node": ">= 0.10"
   },
@@ -23,5 +27,6 @@
     "nomnom": "^1.8.1",
     "tv4": "^1.1.4",
     "winston": "^0.8.3"
-  }
+  },
+  "homepage": "http://zaach.github.com/jsonlint/",
 }
