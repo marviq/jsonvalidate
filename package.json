@@ -1,6 +1,6 @@
 {
   "name": "jsonvalidate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Commandline validator of json-files against a json-schema",
   "main": "index.js",
   "bin": "index.js",
