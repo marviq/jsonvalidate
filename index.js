@@ -3,6 +3,7 @@
 
 var fs = require('fs'),
     tv4 = require('tv4'),
+    winston = require('winston'),
 	opts = require('nomnom')
 	.script('json-schema')
 	.options(
@@ -18,13 +19,29 @@ var fs = require('fs'),
 			  help: 'extra JSON schema file',
 			  list: true
 			},
-			'schema': {
-			  abbr: 's',
-			  help: 'JSON schema file',
-			  required: true
-			}
+            'schema': {
+              abbr: 's',
+              help: 'JSON schema file',
+              required: true
+            },
+            'debug': {
+              abbr: 'd',
+              flag: true,
+              help: 'Debug logging',
+              required: false
+            }
 		}
 	).parse()
+  , debug = opts.debug
+  , logger = new winston.Logger({
+    transports:[
+      new ( winston.transports.Console ) ({
+        colorize: true,
+        level: "debug",
+        silent: !debug
+      })
+    ]
+  })
   , filename = opts.file
   , schemaname = opts.schema
   , extranames = opts.extra
@@ -37,7 +54,7 @@ var fs = require('fs'),
 function validateInputData(data, schema) {
 	// console.log("data: ", data);
 	// console.log("schema: ", schema);
-	console.log('Starting validation');
+	logger.info('Starting validation');
 	var result = tv4.validateMultiple(data, schema, true, true);
 
 	// console.log(tv4.error);
@@ -46,15 +63,15 @@ function validateInputData(data, schema) {
 		for(var i = 0; i < result.errors.length; i++) {
 			delete result.errors[i].stack;
 		}
-		console.log(JSON.stringify(result, null, 4));
+		process.stdout.write(JSON.stringify(result, null, 4));
 	} else {
-		console.log("OK");
+		process.stdout.write("{}");
 	}
-
+    process.stdout.write("\n");
 }
 
 if (extranames) {
-	console.log("Extra schemas ", JSON.stringify(extranames));
+	logger.info("Extra schemas ", JSON.stringify(extranames));
 
 	for(var i = 0; i < extranames.length; i++) {
 		var eschemaString = extranames[i]
@@ -66,7 +83,7 @@ if (extranames) {
 		;
 
 		if (eschema.length != 2) {
-			console.log("Error: extra schema " + eschemaString + " is not of the form 'URL:file");
+			logger.error("Error: extra schema " + eschemaString + " is not of the form 'URL:file");
 			process.exit(-1);
 		}
 		eschemaname = eschema[0];
@@ -75,16 +92,16 @@ if (extranames) {
 		eschemaobject = JSON.parse(eschemaString);
 
 		if (eschemaobject.id) {
-			console.log("Adding schema by id " + eschemaobject.id)
+			logger.debug("Adding schema by id " + eschemaobject.id)
 			tv4.addSchema(eschemaobject);
 		} else {
-			console.log("Adding schema " + eschemaname);
+			logger.debug("Adding schema " + eschemaname);
 			tv4.addSchema(eschemaname, eschemaobject);
 		}
 
 	}
 
-	console.log("Extra schemas loaded", tv4.getSchemaMap());
+	logger.debug("Extra schemas loaded", JSON.stringify(tv4.getSchemaMap(), null ,2));
 }
 
 if (filename === "-") {
@@ -97,7 +114,7 @@ if (filename === "-") {
     	}
     });
     instream.on("end", function() {
-    	console.log("infile: ", infile.toString('utf8'));
+    	logger.debug("infile: ", infile.toString('utf8'));
 
     	validateInputData(JSON.parse(infile.toString('utf8')), schema);
     });
