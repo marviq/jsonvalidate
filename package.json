@@ -1,6 +1,6 @@
 {
   "name": "jsonvalidate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Commandline validator of json-files against a json-schema",
   "main": "index.js",
   "bin": "index.js",
@@ -15,7 +15,16 @@
     "name": "Bas Velthuizen",
     "email": "bas.velthuizen@marviq.com"
   },
-  "license": "ISC",
+  "maintainers": {
+    "name": "David Bouman",
+    "email": "david.bouman@marviq.com"
+  },
+  "license": "Marviq",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marviq/jsonvalidate.git"
+  },
+  "bugs": "https://jira.marviq.com",
   "engines": {
     "node": ">= 0.10"
   },
@@ -23,5 +32,13 @@
     "nomnom": "^1.8.1",
     "tv4": "^1.1.4",
     "winston": "^0.8.3"
-  }
+  },
+  "homepage": "http://www.marviq.com",
+  "files": [
+    "index.js",
+    "package.json",
+    "LICENSE",
+    "AUTHORS",
+    "readme.md"
+  ]
 }
