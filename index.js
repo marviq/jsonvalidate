@@ -5,7 +5,7 @@ var fs = require('fs'),
     tv4 = require('tv4'),
     winston = require('winston'),
 	opts = require('nomnom')
-	.script('json-schema')
+	.script('jsonvalidate')
 	.options(
 		{
 		  'file': {
