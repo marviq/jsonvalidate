@@ -22,7 +22,7 @@
   "license": "Marviq",
   "repository": {
     "type": "git",
-    "url": "ssh://git@stash.marviq.com:7999/jsch/jsonvalidate.git"
+    "url": "https://github.com/marviq/jsonvalidate.git"
   },
   "bugs": "https://jira.marviq.com",
   "engines": {
@@ -33,15 +33,12 @@
     "tv4": "^1.1.4",
     "winston": "^0.8.3"
   },
-  "homepage": "https://stash.marviq.com/projects/JSCH/repos/jsonvalidate/browse",
+  "homepage": "http://www.marviq.com",
   "files": [
     "index.js",
     "package.json",
     "LICENSE",
     "AUTHORS",
     "readme.md"
-  ],
-  "publishConfig": {
-    "registry": "http://npm.marviq.net:5984/registry/_design/app/_rewrite"
-  }
+  ]
 }
